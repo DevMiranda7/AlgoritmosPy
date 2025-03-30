@@ -6,3 +6,26 @@
 
 
 
+def permutacao(prefixo, restante, resultado):
+    if not restante:
+        resultado.append(prefixo)
+        print(restante)
+        print(resultado)
+        print(prefixo)
+    else:
+        for i in range(len(restante)):
+            print(restante)
+            novo_prefixo = prefixo + restante[i]
+            print(novo_prefixo)
+            novo_restante = restante[:i] + restante[i+1:]
+            print(novo_restante)
+            permutacao(novo_prefixo,novo_restante,resultado)
+            
+letras = "abc"
+result = []
+
+
+resposta = permutacao("",letras,result)
+
+
+print(result)
