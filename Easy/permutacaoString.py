@@ -6,26 +6,34 @@
 
 
 
-def permutacao(prefixo, restante, resultado):
-    if not restante:
-        resultado.append(prefixo)
-        print(restante)
-        print(resultado)
-        print(prefixo)
-    else:
-        for i in range(len(restante)):
-            print(restante)
-            novo_prefixo = prefixo + restante[i]
-            print(novo_prefixo)
-            novo_restante = restante[:i] + restante[i+1:]
-            print(novo_restante)
-            permutacao(novo_prefixo,novo_restante,resultado)
-            
-letras = "abc"
-result = []
+def permutacoes(string, passo):
+    # Se chegou ao final, imprime a permutação
+    if passo == len(string):
+        for c in string:
+            print(c, end="")  # Imprime sem join
+        print()  # Pula para a próxima linha
+        return
 
+    # Percorre cada posição possível para troca
+    for i in range(passo, len(string)):
+        # Troca os caracteres manualmente
+        temp = string[passo]
+        string[passo] = string[i]
+        string[i] = temp
 
-resposta = permutacao("",letras,result)
+        # Chama a função recursivamente para o próximo passo
+        permutacoes(string, passo + 1)
 
+        # Reverte a troca para restaurar o estado original
+        temp = string[passo]
+        string[passo] = string[i]
+        string[i] = temp
 
-print(result)
+# Conversão manual da string para lista
+s = []
+entrada = "ABC"
+for c in entrada:
+    s.append(c)
+
+# Chamando a função de permutação
+permutacoes(s, 0)
