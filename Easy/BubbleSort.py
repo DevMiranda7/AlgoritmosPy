@@ -1,4 +1,4 @@
-string = ["A","C","B"]
+string = [1,0,3,2,9,22,12,33]
 tamanho = len(string)
 
 for i in range(tamanho - 1):
