@@ -1,36 +1,33 @@
-#APRENDENDO
+class No:
+    def __init__(self,valor):
+        self.valor = valor
+        self.esquerda = None
+        self.direita = None
+
+def inserir(raiz,valor):
+    if raiz is None:
+        return No(valor)
+    if valor < raiz.valor:
+        raiz.esquerda = inserir(raiz.esquerda,valor)
+    else:
+        raiz.direita = inserir(raiz.direita,valor)
+    return raiz
 
 
-# class No:
-#     def __init__(self, valor):
-#         self.valor = valor      # O valor armazenado no nó
-#         self.esq = None         # Ponteiro para o nó da esquerda
-#         self.dir = None         # Ponteiro para o nó da direita
+def busca(raiz,valor):
+    if raiz is None:
+        return False
+    if raiz.valor == valor:
+        return True
+    elif valor < raiz.valor:
+        return busca(raiz.esquerda,valor)
+    else:
+        return busca(raiz.direita,valor)
 
-# def inserir(raiz, valor):
-#     if raiz is None:
-#         return No(valor)
-#     if valor < raiz.valor:
-#         raiz.esq = inserir(raiz.esq, valor)
-#     else:
-#         raiz.dir = inserir(raiz.dir, valor)
-#     return raiz
+valores = [1,2,3,4,5,6,7,8,9,10]
+raiz = None
+for valor in valores:
+    raiz = inserir(raiz,valor)
 
-
-# def buscar(raiz, alvo):
-#     if raiz is None:
-#         return False
-#     if raiz.valor == alvo:
-#         return True
-#     elif alvo < raiz.valor:
-#         return buscar(raiz.esq, alvo)
-#     else:
-#         return buscar(raiz.dir, alvo)
-
-# raiz = None
-# valores = [8, 3, 10, 1, 6, 14]
-# for v in valores:
-#     raiz = inserir(raiz, v)
-
-# print(buscar(raiz, 6))   # True
-# print(buscar(raiz, 7))   # False
+print(busca(raiz,10))
+print(busca(8,2))

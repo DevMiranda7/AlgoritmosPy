@@ -1,13 +1,13 @@
-string = [1,0,3,2,9,22,12,33]
-tamanho = len(string)
+letras = ["D","C","F","G","H","E","A","B"]
+tamanho = len(letras)
 
 for i in range(tamanho - 1):
-    for j in range(tamanho - 1 - i):
-        if string[j] > string [j  + 1]:
-            temporaria = string[j]
-            string[j] = string[j + 1]
-            string[j + 1] = temporaria
+  for j in range(tamanho - 1 - i):
+    if letras[j] > letras[j + 1]:
+      temporaria = letras[j]
+      letras[j] = letras[j + 1]
+      letras[j + 1] = temporaria
 
 
 for i in range(tamanho):
-    print(string[i])
+  print(letras[i])
