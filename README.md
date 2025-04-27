@@ -9,9 +9,7 @@
 
  ### Os mais interessantes:
  - Ordenações
- - Buscas
  - Árvores binárias
- - Recursivos
  
  
 
